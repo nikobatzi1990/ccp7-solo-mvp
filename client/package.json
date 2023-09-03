@@ -40,6 +40,10 @@
   },
   "proxy": "http://127.0.0.1:8000",
   "devDependencies": {
-    "jest": "^27.5.1"
+    "@babel/preset-env": "^7.22.14",
+    "@babel/preset-react": "^7.22.5",
+    "babel-jest": "^29.6.4",
+    "jest": "^27.5.1",
+    "react-test-renderer": "^18.2.0"
   }
 }
