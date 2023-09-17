@@ -48,25 +48,22 @@ const Entry = () => {
 
   return (
     <>
-      <Header className = "header entries-header" text = "Meltdown Tracker"/>
-      
-      
+      <Header className="header entries-header" text="Meltdown Tracker"/>
+    
       <div className="entry">
-        <div className="entry-time">Time of Day: { entry.time_of_day }</div>
-        <div className="entry-intensity">Meltdown Intensity: { entry.intensity }</div>
-        <div className="entry-main">
-          <div className="entry-top">
-            <p>{ date }</p>
-            {
-              entry.flagged
-              ? (<LightBulb className="filled material-symbols-outlined" title="This was a significant event!" alt="Significant Event"/>)
-              : <></>
-            }
-            <h3 className="entry-title">{ entry.title }</h3>
-            <p>Tags: { entry.tag_name } </p>
-          </div>
-          <p className="entry-body">{ entry.body }</p>
-        </div>
+        <p>{ date }</p>
+        <h3 className="entry-title">{ entry.title }</h3>
+        <p className="entry-time">Time of Day: { entry.time_of_day }</p>
+        <p className="entry-intensity">Meltdown Intensity: { entry.intensity }</p>
+
+        {
+          entry.flagged
+          ? (<LightBulb className="filled material-symbols-outlined" title="This was a significant event!" alt="Significant Event"/>)
+          : <></>
+        }
+
+        <p>Tags: { entry.tag_name } </p>
+        <p className="entry-body">{ entry.body }</p>
 
         <Button 
           className="button"
@@ -85,12 +82,11 @@ const Entry = () => {
         <Button 
           className = "trash"
           title="Delete Post"
-          text= { <span className="material-symbols-outlined">delete</span> } 
+          text={ <span className="material-symbols-outlined">delete</span> } 
           onClick={ handlePostDeletion }/> 
-
       </div>
 
-      <Footer className = "footer" text = "© 2023 Meltown Tracker"/>
+      <Footer className="footer" text="© 2023 Meltown Tracker"/>
     </>
   );
 };
