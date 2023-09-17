@@ -116,7 +116,7 @@ const Submission = () => {
           </div>
           
           <textarea 
-            className="entry-body"
+            className="submission__body"
             placeholder="Type your entry here!"
             value={ body }
             cols="60" 

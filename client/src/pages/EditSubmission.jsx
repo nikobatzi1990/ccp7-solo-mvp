@@ -9,6 +9,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import TimeOfDay from "../components/TimeOfDay";
 import LightBulb from "../components/LightBulb";
+import IntensityLevel from "../components/IntensityLevel";
 
 const EditSubmission = () => {
   const { user } = UserAuth();
@@ -20,6 +21,7 @@ const EditSubmission = () => {
   const [body, setBody] = useState("");
   const [tag, setTag] = useState("");
   const [time, setTime] = useState("");
+  const [intensity, setIntensity] = useState("not specified");
   const [isFlagged, setIsFlagged] = useState(false);
   const [classname, setClassname] = useState("");
 
@@ -44,6 +46,7 @@ const EditSubmission = () => {
     setTag(`${entry.tag_name}`);
     setTime(`${entry.time_of_day}`);
     setIsFlagged(`${entry.flagged}`);
+    setIntensity(`${entry.intensity}`);
   }, [entry]);
 
   const handleTitleInput = (event) => {
@@ -68,6 +71,12 @@ const EditSubmission = () => {
     event.preventDefault();
     const value = event.target.id;
     setTime(value);
+  }
+
+  const handleIntensity = (event) => {
+    event.preventDefault();
+    const value = event.target.id;
+    setIntensity(value);
   }
 
   const handleInitialFlag = () => {
@@ -96,7 +105,6 @@ const EditSubmission = () => {
 
   useEffect(() => {
     handleInitialFlag();
-    console.log(classname);
   }, []);
 
   return (
@@ -108,7 +116,8 @@ const EditSubmission = () => {
       <div className="main-body">
 
         <TimeOfDay onClick={ handleTimeOfDay }/>
-        
+        <IntensityLevel onClick={ handleIntensity }/>
+
         <div className="submission">
           <div className="top">
             
@@ -132,7 +141,7 @@ const EditSubmission = () => {
           </div>
           
           <textarea 
-            className="entry-body"
+            className="submission__body"
             placeholder="Type your entry here!"
             value={ body }
             cols="60" 

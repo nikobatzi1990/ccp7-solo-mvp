@@ -63,7 +63,7 @@ const Entry = () => {
         }
 
         <p>Tags: { entry.tag_name } </p>
-        <p className="entry-body">{ entry.body }</p>
+        <div className="entry-body">{ entry.body }</div>
 
         <Button 
           className="button"
