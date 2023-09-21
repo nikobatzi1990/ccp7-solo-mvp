@@ -10,6 +10,7 @@ const Taglist = (props) => {
   const { user } = UserAuth();
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     handleTaglist();
@@ -46,6 +47,14 @@ const Taglist = (props) => {
     } catch (error) {
       console.log('💋', error);
     }
+  }
+
+  const handleIsLoading = async () => {
+    if (!tags.length === 0) {
+      setIsLoading(false);
+    } 
+    console.log('😡', isLoading);
+    console.log('😜', tags);
   }
 
   return ( 

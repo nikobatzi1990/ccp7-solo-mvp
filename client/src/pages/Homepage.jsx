@@ -24,24 +24,24 @@ const Homepage = () => {
           }} />
       </div>
 
-      <Header className = "header homepage-header" text = "Meltdown Tracker"/>
+      <Header className="header homepage-header" text="Meltdown Tracker"/>
 
-      <div className = "main">
-        <Taglist className = "tag-wrapper" />
+      <div className="main">
+        <Taglist className="tag-wrapper" />
 
         <div className="buttons">
           <Button 
             className="button big-button"
-            text = "See all Entries" 
-            onClick = {() => navigate('/entries')} />
+            text="See all Entries" 
+            onClick={() => navigate('/entries')} />
 
           <Button 
             className="button big-button"
-            text = "Add New Entry" 
-            onClick = {() => navigate('/submission')} />
+            text="Add New Entry" 
+            onClick={() => navigate('/submission')} />
         </div>
       </div>
-      <Footer className = "footer" text = "© 2023 Meltown Tracker"/>
+      <Footer className="footer" text="© 2023 Meltown Tracker"/>
     </div>
   )
 }
