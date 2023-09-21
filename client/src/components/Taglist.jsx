@@ -15,6 +15,13 @@ const Taglist = (props) => {
   useEffect(() => {
     handleTaglist();
   }, [user.uid]);
+
+  useEffect(() => {
+    if (tags) {
+      setIsLoading(false);
+      console.log(isLoading);
+    }
+  }, [tags]);
   
   const handleTaglist = async () => {
     try {
@@ -49,20 +56,33 @@ const Taglist = (props) => {
     }
   }
 
-  const handleIsLoading = async () => {
-    if (!tags.length === 0) {
-      setIsLoading(false);
-    } 
-    console.log('😡', isLoading);
-    console.log('😜', tags);
-  }
+  // const handleIsLoading = async () => {
+  //   if (!tags.length === 0) {
+  //     setIsLoading(false);
+  //   } 
+  //   console.log('😡', isLoading);
+  //   console.log('😜', tags);
+  // }
 
   return ( 
     <div className = { className }>
       <h4>Your tags</h4>
-
+      
       <div className='tags'>
-        {(tags.length > 0)
+        { (isLoading)
+          ? "Loading..."
+          : (tags.length === 0)
+            ? "You don't have any tags added yet"
+            : tags.map((tag) => (
+              <button 
+                key={ tag }
+                value={ tag }
+                className="tag"
+                onClick={ handleClickTag } >{"   " + tag + "   " }</button>
+            )
+          )
+        }
+        {/* {(tags.length > 0)
           ? tags.map((tag) => (
             <button 
               key={ tag }
@@ -71,8 +91,9 @@ const Taglist = (props) => {
               onClick={ handleClickTag } >{"   " + tag + "   " }</button>
           ))
           : "Loading..."
-        }
+        } */}
       </div>
+      
       <form onSubmit={ handleNewTag } >
         <Input 
           className="input tag-input"
